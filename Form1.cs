@@ -21,13 +21,6 @@ namespace CaloriesCalculator
         {
             InitializeComponent();
         }
-        
-        private void блюдаBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            Validate();
-            dishBindingSource.EndEdit();
-            tableAdapterManager.UpdateAll(IngridientsПродуктовDataSet);
-        }
 
         private void ингридиентыBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -38,13 +31,10 @@ namespace CaloriesCalculator
         
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "калорийностьПродуктовDataSet2.Блюда". При необходимости она может быть перемещена или удалена.
-            this.блюдаTableAdapter.Fill(this.калорийностьПродуктовDataSet2.Блюда);
+            блюдаTableAdapter.Fill(this.калорийностьПродуктовDataSet2.Блюда);
             ингридиентыTableAdapter.Fill(калорийностьПродуктовDataSet1.Ингридиенты);
             ингридиентыTableAdapter.Fill(калорийностьПродуктовDataSet1.Ингридиенты);
-            //dishTableAdapter.Fill(IngridientsПродуктовDataSet.Блюда);
             IngridientsTableAdapter.Fill(IngridientsПродуктовDataSet.Ингридиенты);
-            //dishTableAdapter.Fill(IngridientsПродуктовDataSet.Блюда);
         }
 
         private void CountCalories_Click(object sender, EventArgs e)
@@ -278,30 +268,42 @@ namespace CaloriesCalculator
             for (int i = 0; i < NewDishesGrid.Rows.Count; i++)
             {
                 gramms += Convert.ToInt32(NewDishesGrid.Rows[i].Cells[2].Value);
-                ingridients += NewDishesGrid.Rows[i].Cells[0].Value;
+                ingridients += NewDishesGrid.Rows[i].Cells[0].Value + "  ";
             }
             DishesTable.Rows.Add(name, 
                 coloricity, gramms, ingridients);
+            AddRowToDB(name, coloricity, gramms, ingridients);
 
-            string connectionString =
-                "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=КалорийностьПродуктов.mdb";
-            OleDbConnection connection = new OleDbConnection(connectionString);
-            connection.Open();
+            for (int i = 0; i < IngridientsDataGridView.Rows.Count; i++)
+            {
+                IngridientsDataGridView.Rows.Remove(IngridientsDataGridView.Rows[i]);
+            }
+        }
+
+        private void AddRowToDB(string name, int coloricity, int gramms, string ingridients)
+        {
+            const string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=КалорийностьПродуктов.mdb";
+            var connection = new OleDbConnection(connectionString);
+            var command = new OleDbCommand
+            {
+                Connection = connection
+            };
             string query =
-                "INSERT INTO `Блюда` (НазваниеБлюда, Калорийность, Порция, Состав) VALUES(name, coloricity, gramms, ingridients)";
-            OleDbCommand command = new OleDbCommand(query ,connection);
+                "INSERT INTO `Блюда` (НазваниеБлюда, Калорийность, Порция, Состав) VALUES('" +name+"', '"+ coloricity+"', '"+gramms+"', '" +ingridients+ "')";
+            command.CommandText = query;
+            connection.Open();
             command.ExecuteNonQuery();
             connection.Close();
         }
-
+        
         private void IngridientsDataGridView_UserAddedRow(object sender, DataGridViewRowEventArgs e)
         {
-            IngridientsHeightNormalization();
+            DataGridHeightNormalization(IngridientsDataGridView);
         }
 
         private void IngridientsDataGridView_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
         {
-            IngridientsHeightNormalization();
+            DataGridHeightNormalization(IngridientsDataGridView);
         }
 
         private void IngridientsDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -312,11 +314,13 @@ namespace CaloriesCalculator
         private void IngridientsDataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             IngridientsRowsIndexesNormalization();
+            DataGridHeightNormalization(IngridientsDataGridView);
         }
         
         private void IngridientsDataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             IngridientsRowsIndexesNormalization();
+            DataGridHeightNormalization(IngridientsDataGridView);
         }
 
         private void IngridientsRowsIndexesNormalization()
@@ -327,9 +331,9 @@ namespace CaloriesCalculator
             }
         }
         
-        private void IngridientsHeightNormalization()
+        private void DataGridHeightNormalization(DataGridView gridToNormalizate)
         {
-            IngridientsDataGridView.Height = IngridientsDataGridView.Rows.Count * 22 + 22;
+            gridToNormalizate.Height = gridToNormalizate.Rows.Count * 22 + 32;
         }
 
      }

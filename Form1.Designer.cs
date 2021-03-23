@@ -121,20 +121,20 @@
             this.groupBox1.SuspendLayout();
             this.IdealWeightControl.SuspendLayout();
             this.DishesControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.блюдаDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.блюдаBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.калорийностьПродуктовDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DishesTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.блюдаDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.блюдаBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.калорийностьПродуктовDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.DishesTable)).BeginInit();
             this.IngridientsControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IngridientsDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ингридиентыBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.калорийностьПродуктовDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NewDishesGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dishBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IngridientsПродуктовDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IngridientsBindingNavigator)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.IngridientsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.ингридиентыBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.калорийностьПродуктовDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.NewDishesGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.dishBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.IngridientsПродуктовDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.IngridientsBindingNavigator)).BeginInit();
             this.IngridientsBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IngridientsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.IngridientsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -144,7 +144,7 @@
             this.tabControl1.Controls.Add(this.IdealWeightControl);
             this.tabControl1.Controls.Add(this.DishesControl);
             this.tabControl1.Controls.Add(this.IngridientsControl);
-            this.tabControl1.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
@@ -200,12 +200,7 @@
             this.PhysicalActivity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.PhysicalActivity.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.PhysicalActivity.FormattingEnabled = true;
-            this.PhysicalActivity.Items.AddRange(new object[] {
-            "Малоподвижный",
-            "Легкая активность",
-            "Средняя активность",
-            "Высокая активность",
-            "Экстремальная активность"});
+            this.PhysicalActivity.Items.AddRange(new object[] {"Малоподвижный", "Легкая активность", "Средняя активность", "Высокая активность", "Экстремальная активность"});
             this.PhysicalActivity.Location = new System.Drawing.Point(205, 410);
             this.PhysicalActivity.Name = "PhysicalActivity";
             this.PhysicalActivity.Size = new System.Drawing.Size(238, 29);
@@ -438,12 +433,7 @@
             // 
             this.блюдаDataGridView.AutoGenerateColumns = false;
             this.блюдаDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.блюдаDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15});
+            this.блюдаDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.dataGridViewTextBoxColumn11, this.dataGridViewTextBoxColumn12, this.dataGridViewTextBoxColumn13, this.dataGridViewTextBoxColumn14, this.dataGridViewTextBoxColumn15});
             this.блюдаDataGridView.DataSource = this.блюдаBindingSource;
             this.блюдаDataGridView.Location = new System.Drawing.Point(8, 65);
             this.блюдаDataGridView.Name = "блюдаDataGridView";
@@ -488,17 +478,14 @@
             // калорийностьПродуктовDataSet2
             // 
             this.калорийностьПродуктовDataSet2.DataSetName = "КалорийностьПродуктовDataSet2";
+            this.калорийностьПродуктовDataSet2.Namespace = "http://tempuri.org/КалорийностьПродуктовDataSet2.xsd";
             this.калорийностьПродуктовDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // DishesTable
             // 
             this.DishesTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DishesTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DishName,
-            this.DishColoricity,
-            this.DishGramms,
-            this.DishIngridients});
-            this.DishesTable.Location = new System.Drawing.Point(653, 65);
+            this.DishesTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.DishName, this.DishColoricity, this.DishGramms, this.DishIngridients});
+            this.DishesTable.Location = new System.Drawing.Point(685, 65);
             this.DishesTable.Name = "DishesTable";
             this.DishesTable.Size = new System.Drawing.Size(460, 68);
             this.DishesTable.TabIndex = 12;
@@ -544,7 +531,7 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(711, 300);
+            this.label8.Location = new System.Drawing.Point(672, 283);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(161, 23);
             this.label8.TabIndex = 10;
@@ -552,7 +539,7 @@
             // 
             // NewDishName
             // 
-            this.NewDishName.Location = new System.Drawing.Point(878, 300);
+            this.NewDishName.Location = new System.Drawing.Point(839, 283);
             this.NewDishName.Name = "NewDishName";
             this.NewDishName.Size = new System.Drawing.Size(139, 28);
             this.NewDishName.TabIndex = 9;
@@ -561,15 +548,11 @@
             // 
             this.IngridientsDataGridView.AutoGenerateColumns = false;
             this.IngridientsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.IngridientsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn9});
+            this.IngridientsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.dataGridViewTextBoxColumn1, this.dataGridViewTextBoxColumn2, this.dataGridViewTextBoxColumn3, this.dataGridViewTextBoxColumn9});
             this.IngridientsDataGridView.DataSource = this.ингридиентыBindingSource;
             this.IngridientsDataGridView.Location = new System.Drawing.Point(8, 93);
             this.IngridientsDataGridView.Name = "IngridientsDataGridView";
-            this.IngridientsDataGridView.Size = new System.Drawing.Size(454, 99);
+            this.IngridientsDataGridView.Size = new System.Drawing.Size(623, 116);
             this.IngridientsDataGridView.TabIndex = 8;
             this.IngridientsDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.IngridientsDataGridView_DataError);
             this.IngridientsDataGridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.IngridientsDataGridView_RowHeaderMouseDoubleClick);
@@ -583,12 +566,14 @@
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Код ингридиента";
             this.dataGridViewTextBoxColumn1.HeaderText = "Код ингридиента";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 175;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "Названия ингридиентов";
             this.dataGridViewTextBoxColumn2.HeaderText = "Названия ингридиентов";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 200;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -610,18 +595,19 @@
             // калорийностьПродуктовDataSet1
             // 
             this.калорийностьПродуктовDataSet1.DataSetName = "КалорийностьПродуктовDataSet1";
+            this.калорийностьПродуктовDataSet1.Namespace = "http://tempuri.org/КалорийностьПродуктовDataSet1.xsd";
             this.калорийностьПродуктовDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // CommonColoricity
             // 
-            this.CommonColoricity.Location = new System.Drawing.Point(878, 251);
+            this.CommonColoricity.Location = new System.Drawing.Point(839, 234);
             this.CommonColoricity.Name = "CommonColoricity";
             this.CommonColoricity.Size = new System.Drawing.Size(69, 27);
             this.CommonColoricity.TabIndex = 8;
             // 
             // label111
             // 
-            this.label111.Location = new System.Drawing.Point(711, 255);
+            this.label111.Location = new System.Drawing.Point(672, 238);
             this.label111.Name = "label111";
             this.label111.Size = new System.Drawing.Size(161, 23);
             this.label111.TabIndex = 7;
@@ -629,7 +615,7 @@
             // 
             // AddingNewDish
             // 
-            this.AddingNewDish.Location = new System.Drawing.Point(711, 349);
+            this.AddingNewDish.Location = new System.Drawing.Point(672, 332);
             this.AddingNewDish.Name = "AddingNewDish";
             this.AddingNewDish.Size = new System.Drawing.Size(112, 35);
             this.AddingNewDish.TabIndex = 6;
@@ -640,14 +626,11 @@
             // NewDishesGrid
             // 
             this.NewDishesGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.NewDishesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IngridientNewDish,
-            this.Caloricity,
-            this.Grams});
-            this.NewDishesGrid.Location = new System.Drawing.Point(592, 93);
+            this.NewDishesGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.IngridientNewDish, this.Caloricity, this.Grams});
+            this.NewDishesGrid.Location = new System.Drawing.Point(672, 93);
             this.NewDishesGrid.Name = "NewDishesGrid";
             this.NewDishesGrid.ReadOnly = true;
-            this.NewDishesGrid.Size = new System.Drawing.Size(403, 99);
+            this.NewDishesGrid.Size = new System.Drawing.Size(403, 116);
             this.NewDishesGrid.TabIndex = 4;
             // 
             // IngridientNewDish
@@ -672,7 +655,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(592, 39);
+            this.label7.Location = new System.Drawing.Point(672, 38);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(122, 21);
             this.label7.TabIndex = 1;
@@ -686,12 +669,13 @@
             // IngridientsПродуктовDataSet
             // 
             this.IngridientsПродуктовDataSet.DataSetName = "КалорийностьПродуктовDataSet";
+            this.IngridientsПродуктовDataSet.Namespace = "http://tempuri.org/КалорийностьПродуктовDataSet.xsd";
             this.IngridientsПродуктовDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
@@ -700,7 +684,7 @@
             // bindingNavigatorMovePreviousItem
             // 
             this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
@@ -715,7 +699,6 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Положение";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -736,7 +719,7 @@
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
@@ -745,7 +728,7 @@
             // bindingNavigatorMoveLastItem
             // 
             this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
@@ -759,7 +742,7 @@
             // bindingNavigatorAddNewItem
             // 
             this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
@@ -768,7 +751,7 @@
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
@@ -777,7 +760,7 @@
             // ингридиентыBindingNavigatorSaveItem
             // 
             this.ингридиентыBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ингридиентыBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("ингридиентыBindingNavigatorSaveItem.Image")));
+            this.ингридиентыBindingNavigatorSaveItem.Image = ((System.Drawing.Image) (resources.GetObject("ингридиентыBindingNavigatorSaveItem.Image")));
             this.ингридиентыBindingNavigatorSaveItem.Name = "ингридиентыBindingNavigatorSaveItem";
             this.ингридиентыBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.ингридиентыBindingNavigatorSaveItem.Text = "Сохранить данные";
@@ -789,19 +772,7 @@
             this.IngridientsBindingNavigator.BindingSource = this.IngridientsBindingSource;
             this.IngridientsBindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.IngridientsBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.IngridientsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.ингридиентыBindingNavigatorSaveItem});
+            this.IngridientsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.bindingNavigatorMoveFirstItem, this.bindingNavigatorMovePreviousItem, this.bindingNavigatorSeparator, this.bindingNavigatorPositionItem, this.bindingNavigatorCountItem, this.bindingNavigatorSeparator1, this.bindingNavigatorMoveNextItem, this.bindingNavigatorMoveLastItem, this.bindingNavigatorSeparator2, this.bindingNavigatorAddNewItem, this.bindingNavigatorDeleteItem, this.ингридиентыBindingNavigatorSaveItem});
             this.IngridientsBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.IngridientsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.IngridientsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -873,26 +844,30 @@
             this.IdealWeightControl.ResumeLayout(false);
             this.IdealWeightControl.PerformLayout();
             this.DishesControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.блюдаDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.блюдаBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.калорийностьПродуктовDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DishesTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.блюдаDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.блюдаBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.калорийностьПродуктовDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.DishesTable)).EndInit();
             this.IngridientsControl.ResumeLayout(false);
             this.IngridientsControl.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IngridientsDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ингридиентыBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.калорийностьПродуктовDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NewDishesGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dishBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IngridientsПродуктовDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IngridientsBindingNavigator)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.IngridientsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.ингридиентыBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.калорийностьПродуктовDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.NewDishesGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.dishBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.IngridientsПродуктовDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.IngridientsBindingNavigator)).EndInit();
             this.IngridientsBindingNavigator.ResumeLayout(false);
             this.IngridientsBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.IngridientsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.IngridientsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
 
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
 
@@ -990,10 +965,6 @@
         private КалорийностьПродуктовDataSet1TableAdapters.ИнгридиентыTableAdapter ингридиентыTableAdapter;
         private КалорийностьПродуктовDataSet1TableAdapters.TableAdapterManager tableAdapterManager1;
         private System.Windows.Forms.DataGridView IngridientsDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private КалорийностьПродуктовDataSet2 калорийностьПродуктовDataSet2;
         private System.Windows.Forms.BindingSource блюдаBindingSource;
         private КалорийностьПродуктовDataSet2TableAdapters.БлюдаTableAdapter блюдаTableAdapter;
