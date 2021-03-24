@@ -7,8 +7,11 @@ using System.Windows.Forms;
 
 namespace CaloriesCalculator
 {
-     public partial class Form1 : Form
-     { 
+    public partial class Form1 : Form
+    {
+        const string ConnectionString =
+            @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=КалорийностьПродуктов.mdb";
+
         private ResultsForm _resultsForm;
         private const int RowsCountPfc = 3;
         private const int CellsCountPfc = 3;
@@ -17,42 +20,41 @@ namespace CaloriesCalculator
         private bool _formula;
         private List<int> _changingWeightModes = new List<int>();
         private List<Label> _textBoxesPfc = new List<Label>();
+
+        private OleDbConnection _connection = new OleDbConnection(ConnectionString);
+        private OleDbCommand _command = new OleDbCommand();
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void ингридиентыBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            Validate();
-            IngridientsBindingSource.EndEdit();
-            tableAdapterManager.UpdateAll(IngridientsПродуктовDataSet);
-        }
-        
         private void Form1_Load(object sender, EventArgs e)
         {
             блюдаTableAdapter.Fill(this.калорийностьПродуктовDataSet2.Блюда);
             ингридиентыTableAdapter.Fill(калорийностьПродуктовDataSet1.Ингридиенты);
             ингридиентыTableAdapter.Fill(калорийностьПродуктовDataSet1.Ингридиенты);
             IngridientsTableAdapter.Fill(IngridientsПродуктовDataSet.Ингридиенты);
+            _command.Connection = _connection;
         }
 
         private void CountCalories_Click(object sender, EventArgs e)
         {
             _changingWeightModes.Clear();
             _formula = MifflinFormula.Checked;
-            if (_resultsForm == null)
+            if ((_resultsForm == null) || (_resultsForm.Visible == false))
             {
                 _resultsForm = new ResultsForm
                 {
                     Visible = true
                 };
             }
+
             CountCaloriesOnFormula();
             CreateLabelsValuesPfc();
             FillPfcMuscules();
         }
-        
+
         private void CountIdealWeight_Click(object sender, EventArgs e)
         {
             var idealWeightCount = new CountingIdealWeight(this);
@@ -61,7 +63,7 @@ namespace CaloriesCalculator
             IdealWeightDisplay.Text = idealWeight.ToString(CultureInfo.InvariantCulture);
             WeightIndex.Text = weightIndex.ToString(CultureInfo.InvariantCulture);
         }
-        
+
         private void CountCaloriesOnFormula()
         {
             _count = new CountingCalories(this);
@@ -70,18 +72,18 @@ namespace CaloriesCalculator
             int moreCalories;
             if (_formula)
             {
-                _caloriesNumberWithout = _count.CountCaloriesMifflinActivityTypes(out caloriesNumberFast, 
+                _caloriesNumberWithout = _count.CountCaloriesMifflinActivityTypes(out caloriesNumberFast,
                     out caloriesNumberMedium, out moreCalories);
             }
             else
             {
-                _caloriesNumberWithout = _count.CountCaloriesHarrisActivityTypes(out caloriesNumberFast, 
-                    out caloriesNumberMedium,out moreCalories);
+                _caloriesNumberWithout = _count.CountCaloriesHarrisActivityTypes(out caloriesNumberFast,
+                    out caloriesNumberMedium, out moreCalories);
             }
 
-            AddModesChangingWeightList(_caloriesNumberWithout, caloriesNumberMedium, caloriesNumberFast, 
+            AddModesChangingWeightList(_caloriesNumberWithout, caloriesNumberMedium, caloriesNumberFast,
                 moreCalories);
-            
+
             _resultsForm.NotDecreasingWeight.Text = _caloriesNumberWithout.ToString();
             _resultsForm.DecreasingWeight.Text = caloriesNumberMedium.ToString();
             _resultsForm.FastDecreasingWeight.Text = caloriesNumberFast.ToString();
@@ -109,22 +111,30 @@ namespace CaloriesCalculator
             {
                 Console.WriteLine(@"Введите верные значения в поля параметров");
             }
-            
+
             var coefValue = new float();
             var proteins = 0f;
             var fats = 0f;
+            if (_count._isExceptional)
+            {
+                weight = 0;
+            }
+
             for (int i = 0; i < _textBoxesPfc.Count; i++)
             {
+
                 if (i % 3 == 0)
                 {
                     coefValue = proteinsCoef * weight;
                     proteins = coefValue;
                 }
+
                 if (i % 3 == 1)
                 {
                     coefValue = fatsCoef * weight;
                     fats = coefValue;
                 }
+
                 if (i % 3 == 2)
                 {
                     coefValue = (Convert.ToInt32(_resultsForm.NotDecreasingWeight.Text) -
@@ -134,7 +144,7 @@ namespace CaloriesCalculator
                 _textBoxesPfc[i].Text = coefValue.ToString(CultureInfo.InvariantCulture);
             }
         }
-        
+
         private void FillPfc()
         {
             var coefParameterPfc = 0d;
@@ -144,95 +154,90 @@ namespace CaloriesCalculator
             {
                 if (i % 3 == 0)
                 {
-                    parameterPfc = Convert.ToDouble(_changingWeightModes[j])  * coefParameterPfc;
-                    if (j == 0) 
+                    parameterPfc = Convert.ToDouble(_changingWeightModes[j]) * coefParameterPfc;
+                    if (j == 0)
                     {
                         coefParameterPfc = 0.3 / 4;
                     }
+
                     if (j == 1)
                     {
                         coefParameterPfc = 0.2 / 9;
                     }
+
                     if (j == 2)
                     {
                         coefParameterPfc = 0.5 / 4;
                     }
-                    
+
                     j++;
                 }
+
                 _textBoxesPfc[i].Text = parameterPfc.ToString(CultureInfo.InvariantCulture);
             }
         }
-        
+
         private void CreateLabelsValuesPfc()
         {
             _textBoxesPfc.Clear();
             _resultsForm.IndicatorValues.Controls.Clear();
-            
+
             var topControl = 0;
             var leftControl = 0;
-            
-            var tmpTop = (_resultsForm.FatsText.Top + _resultsForm.FatsText.Height / 2) - 
+
+            var tmpTop = (_resultsForm.FatsText.Top + _resultsForm.FatsText.Height / 2) -
                          (_resultsForm.ProteinText.Top + _resultsForm.ProteinText.Height / 2);
-            var tmpLeft = (_resultsForm.WeightDecreaseText.Left + _resultsForm.WeightDecreaseText.Width / 2) - 
-                          (_resultsForm.WithoutWeightChangeText.Left + _resultsForm.WithoutWeightChangeText.Width / 2);
-            
+            var tmpLeft =
+                (_resultsForm.WeightDecreaseText.Left + _resultsForm.WeightDecreaseText.Width / 2) -
+                (_resultsForm.WithoutWeightChangeText.Left + _resultsForm.WithoutWeightChangeText.Width / 2);
+
             /*for (int i = 0; i < RowsCountPfc; i++)
             {*/
-                for (int j = 0; j < CellsCountPfc; j++)
-                {
-                    var labelParam = CreateOneFieldPfc(new Point(leftControl, topControl));
-                    _resultsForm.IndicatorValues.Controls.Add(labelParam);
-                    _textBoxesPfc.Add(labelParam);
-                    topControl += tmpTop;
-                }
-
-                /*
+            for (int j = 0; j < CellsCountPfc; j++)
+            {
+                var labelParam = CreateOneFieldPfc(new Point(leftControl, topControl));
+                _resultsForm.IndicatorValues.Controls.Add(labelParam);
+                _textBoxesPfc.Add(labelParam);
                 topControl += tmpTop;
-                leftControl = 0;
-            }*/
+            }
+
+            /*
+            topControl += tmpTop;
+            leftControl = 0;
+        }*/
         }
 
         private Label CreateOneFieldPfc(Point controls)
         {
             var labelParam = new Label
             {
-                Location = new Point(controls.X,controls.Y),
+                Location = new Point(controls.X, controls.Y),
                 Width = _resultsForm.WeightDecreaseText.Width,
                 Height = _resultsForm.FatsText.Height,
                 Visible = true,
-                    
+
             };
-            
+
             return labelParam;
-        } 
-        
+        }
+
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void IngridientsControl_Enter(object sender, EventArgs e)
-        {
-            IngridientsBindingNavigator.Visible = true;
-        }
-
-        private void IngridientsControl_Leave(object sender, EventArgs e)
-        {
-            IngridientsBindingNavigator.Visible = false;
         }
 
         private void DishesControl_Enter(object sender, EventArgs e)
         {
             //Dishe
         }
-        
-        private void IngridientsDataGridView_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+
+        private void IngridientsDataGridView_RowHeaderMouseDoubleClick(object sender,
+            DataGridViewCellMouseEventArgs e)
         {
             var prevCount = NewDishesGrid.Rows.Count;
             var selectedRows = IngridientsDataGridView.SelectedRows;
             NewDishesGrid.Rows.Add(selectedRows);
-            
+
             for (int i = 0; i < selectedRows.Count; i++)
             {
                 var selectedCells = selectedRows[i].Cells;
@@ -270,32 +275,28 @@ namespace CaloriesCalculator
                 gramms += Convert.ToInt32(NewDishesGrid.Rows[i].Cells[2].Value);
                 ingridients += NewDishesGrid.Rows[i].Cells[0].Value + "  ";
             }
-            DishesTable.Rows.Add(name, 
-                coloricity, gramms, ingridients);
-            AddRowToDB(name, coloricity, gramms, ingridients);
 
-            for (int i = 0; i < IngridientsDataGridView.Rows.Count; i++)
+            DishesTable.Rows.Add(name,
+                coloricity, gramms, ingridients);
+            AddRowToDb(name, coloricity, gramms, ingridients);
+
+            for (int i = 0; i < IngridientsDataGridView.Rows.Count - 1; i++)
             {
-                IngridientsDataGridView.Rows.Remove(IngridientsDataGridView.Rows[i]);
+                NewDishesGrid.Rows.Remove(NewDishesGrid.Rows[i]);
             }
         }
 
-        private void AddRowToDB(string name, int coloricity, int gramms, string ingridients)
+        private void AddRowToDb(string name, int coloricity, int gramms, string ingridients)
         {
-            const string connectionString = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=КалорийностьПродуктов.mdb";
-            var connection = new OleDbConnection(connectionString);
-            var command = new OleDbCommand
-            {
-                Connection = connection
-            };
             string query =
-                "INSERT INTO `Блюда` (НазваниеБлюда, Калорийность, Порция, Состав) VALUES('" +name+"', '"+ coloricity+"', '"+gramms+"', '" +ingridients+ "')";
-            command.CommandText = query;
-            connection.Open();
-            command.ExecuteNonQuery();
-            connection.Close();
+                "INSERT INTO `Блюда` (НазваниеБлюда, Калорийность, Порция, Состав) VALUES('" + name +
+                "', '" + coloricity + "', '" + gramms + "', '" + ingridients + "')";
+            _command.CommandText = query;
+            _connection.Open();
+            _command.ExecuteNonQuery();
+            _connection.Close();
         }
-        
+
         private void IngridientsDataGridView_UserAddedRow(object sender, DataGridViewRowEventArgs e)
         {
             DataGridHeightNormalization(IngridientsDataGridView);
@@ -308,15 +309,15 @@ namespace CaloriesCalculator
 
         private void IngridientsDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            
+
         }
-        
+
         private void IngridientsDataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             IngridientsRowsIndexesNormalization();
             DataGridHeightNormalization(IngridientsDataGridView);
         }
-        
+
         private void IngridientsDataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             IngridientsRowsIndexesNormalization();
@@ -330,19 +331,54 @@ namespace CaloriesCalculator
                 IngridientsDataGridView.Rows[i].Cells[0].Value = i;
             }
         }
-        
+
         private void DataGridHeightNormalization(DataGridView gridToNormalizate)
         {
             gridToNormalizate.Height = gridToNormalizate.Rows.Count * 22 + 32;
         }
 
-     }
+        private void блюдаDataGridView_RowHeaderMouseDoubleClick(object sender,
+            DataGridViewCellMouseEventArgs e)
+        {
+            var dishStructure = SelectDishStructure();
+            
+            string query =
+                "SELECT * FROM `Ингридиенты` WHERE `Названия ингридиентов`";
+            _command.CommandText = query;
+            _connection.Open();
+            _command.ExecuteNonQuery();
+            _connection.Close();
+        }
+
+        private List<string> SelectDishStructure()
+        {
+            var dishStructure = new List<string>();
+            var selectedString = блюдаDataGridView.SelectedRows[0];
+            var dishStructureCellValue = Convert.ToString(selectedString.Cells[1].Value);
+            var stringToAdd = "";
+            for (int i = 0; i < dishStructureCellValue.Length; i++)
+            {
+                if (dishStructureCellValue[i] == ' ')
+                {
+                    dishStructure.Add(stringToAdd);
+                    stringToAdd = "";
+                }
+                else
+                {
+                    stringToAdd += dishStructureCellValue[i];
+                }
+            }
+
+            return dishStructure;
+        }
+    }
 
     public class CountingCalories
     {
         private const int MaleFactor = 5;
         private const int FeMaleFactor = -161;
 
+        public bool _isExceptional;
         private float _weight;
         private int _height;
         private int _ages;
@@ -364,25 +400,45 @@ namespace CaloriesCalculator
             }
             catch (Exception exception)
             {
+                _isExceptional = true;
                 _activityIndex = 0;
+                _weight = 0;
                 MessageBox.Show(exception.Message);
             }
         }
 
         public int CountCaloriesHarrisActivityTypes(out int fastLoss, out int mediumLoss, out int moreWeight)
         {
-            fastLoss = (int) (CountCaloriesHarris() * 0.6);
-            mediumLoss = (int) (CountCaloriesHarris() * 0.8);
-            moreWeight = (int) (CountCaloriesHarris() * 1.2);
-            return CountCaloriesHarris();
+            int harris = 0;
+            if (_isExceptional)
+            {
+                harris = 0;
+            }
+            else
+            {
+                harris = CountCaloriesHarris();
+            }
+            fastLoss = (int) (harris * 0.6);
+            mediumLoss = (int) (harris * 0.8);
+            moreWeight = (int) (harris * 1.2);
+            return harris;
         }
         
         public int CountCaloriesMifflinActivityTypes(out int fastLoss, out int mediumLoss, out int moreWeight)
         {
-            fastLoss = (int) (CountCaloriesMifflin() * 0.6);
-            mediumLoss = (int) (CountCaloriesMifflin() * 0.8);
-            moreWeight = (int) (CountCaloriesMifflin() * 1.2);
-            return CountCaloriesMifflin();
+            var mifflin = 0;
+            if (_isExceptional)
+            {
+                mifflin = 0;
+            }
+            else
+            {
+                mifflin = CountCaloriesMifflin();
+            }
+            fastLoss = (int) (mifflin * 0.6);
+            mediumLoss = (int) (mifflin * 0.8);
+            moreWeight = (int) (mifflin * 1.2);
+            return mifflin;
         }
 
         private int CountCaloriesHarris()
@@ -426,7 +482,14 @@ namespace CaloriesCalculator
             _weight = Convert.ToSingle(mainForm.Weight.Text);
             _height = Convert.ToInt32(mainForm.Growth.Text);
             _ages = Convert.ToInt32(mainForm.Ages.Text);
-            _activityIndex = 1.2f + mainForm.PhysicalActivity.SelectedIndex * 0.175f;
+            if (_isExceptional)
+            {
+                _activityIndex = 0;
+            }
+            else
+            {
+                _activityIndex = 1.2f + mainForm.PhysicalActivity.SelectedIndex * 0.175f;
+            }
             _isMale = mainForm.Male.Checked;
         }
     }
@@ -435,11 +498,13 @@ namespace CaloriesCalculator
     {
         private const float MaleFactor = 2.2f;
         private const float FeMaleFactor = -2.2f;
-        
+
+        private int _exceptionIndex = 1;
         private float _height;
         private float _currentWeight;
         private float _genderFactor;
         private bool _isMale;
+        private bool _isExceptional;
         
         public CountingIdealWeight(Form1 mainForm)
         {
@@ -449,36 +514,34 @@ namespace CaloriesCalculator
 
             try
             {
-                if ((_height <= 145 || _height >= 225) || (!mainForm.Male.Checked && !mainForm.Female
-                    .Checked))
+                if ((_height <= 145 || _height >= 225) || (_currentWeight <= 45 || _currentWeight >= 175) ||
+                    (!mainForm.Male
+                        .Checked && !mainForm
+                        .Female
+                        .Checked))
                 {
-                    _height = 0;
-                    _genderFactor = 0;
-                    throw new Exception("Укажите правильные значения в полях параметров");
+                    throw new Exception(
+                        "Укажите правильные значения в полях параметров (ваш пол, массу и рост)");
                 }
             }
             catch (ArgumentException)
             {
-                _height = 0;
-                _genderFactor = 0;
+                _isExceptional = true;
                 MessageBox.Show(@"Укажите значения в полях параметров для расчета веса");
             }
             catch (NullReferenceException)
             {
-                _height = 0;
-                _genderFactor = 0;
+                _isExceptional = true;
                 MessageBox.Show(@"Укажите значения в полях параметров для расчета веса");
             }
             catch (InvalidCastException)
             {
-                _height = 0;
-                _genderFactor = 0;
+                _isExceptional = true;
                 MessageBox.Show(@"Укажите верные данные в полях параметров для расчета веса");
             }
             catch (Exception exception)
             {
-                _height = 0;
-                _genderFactor = 0;
+                _isExceptional = true;
                 MessageBox.Show(exception.Message);
             }
         }
@@ -486,13 +549,21 @@ namespace CaloriesCalculator
         public double CountIdealWeight()
         {
             SetGenderFactor();
-            var idealWeight = Math.Pow(_height / 100, 2) * 21.745 + _genderFactor;
+            if (_isExceptional)
+            {
+                _exceptionIndex = 0;
+            }
+            var idealWeight = (Math.Pow(_height / 100, 2) * 21.745 + _genderFactor) * _exceptionIndex;
             return idealWeight;
         }
 
         public float CountWeightIndex()
         {
-            var index = (float) Math.Round((_currentWeight / Math.Pow(_height / 100, 2)), 2);
+            if (_isExceptional)
+            {
+                _exceptionIndex = 0;
+            }
+            var index = (float) Math.Round((_currentWeight / Math.Pow(_height / 100, 2)), 2) * _exceptionIndex;
             return index;
         }
         

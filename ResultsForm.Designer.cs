@@ -52,6 +52,7 @@ namespace CaloriesCalculator
             // 
             // MoreWeight
             // 
+            this.MoreWeight.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.MoreWeight.Location = new System.Drawing.Point(570, 155);
             this.MoreWeight.Name = "MoreWeight";
             this.MoreWeight.Size = new System.Drawing.Size(100, 23);
@@ -59,6 +60,7 @@ namespace CaloriesCalculator
             // 
             // MusclesText
             // 
+            this.MusclesText.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.MusclesText.Location = new System.Drawing.Point(221, 247);
             this.MusclesText.Name = "MusclesText";
             this.MusclesText.Size = new System.Drawing.Size(156, 23);
@@ -67,6 +69,7 @@ namespace CaloriesCalculator
             // 
             // NotDecreasingWeight
             // 
+            this.NotDecreasingWeight.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.NotDecreasingWeight.Location = new System.Drawing.Point(172, 155);
             this.NotDecreasingWeight.Name = "NotDecreasingWeight";
             this.NotDecreasingWeight.Size = new System.Drawing.Size(100, 23);
@@ -84,6 +87,7 @@ namespace CaloriesCalculator
             // 
             // label17
             // 
+            this.label17.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label17.Location = new System.Drawing.Point(74, 61);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(100, 23);
@@ -92,6 +96,7 @@ namespace CaloriesCalculator
             // 
             // label16
             // 
+            this.label16.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label16.Location = new System.Drawing.Point(74, 29);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(100, 23);
@@ -100,6 +105,7 @@ namespace CaloriesCalculator
             // 
             // label15
             // 
+            this.label15.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label15.Location = new System.Drawing.Point(74, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(100, 23);
@@ -108,6 +114,7 @@ namespace CaloriesCalculator
             // 
             // DecreasingWeight
             // 
+            this.DecreasingWeight.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.DecreasingWeight.Location = new System.Drawing.Point(307, 155);
             this.DecreasingWeight.Name = "DecreasingWeight";
             this.DecreasingWeight.Size = new System.Drawing.Size(100, 23);
@@ -115,6 +122,7 @@ namespace CaloriesCalculator
             // 
             // FastDecreasingWeight
             // 
+            this.FastDecreasingWeight.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.FastDecreasingWeight.Location = new System.Drawing.Point(439, 155);
             this.FastDecreasingWeight.Name = "FastDecreasingWeight";
             this.FastDecreasingWeight.Size = new System.Drawing.Size(100, 23);
@@ -122,6 +130,7 @@ namespace CaloriesCalculator
             // 
             // CarbonText
             // 
+            this.CarbonText.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.CarbonText.Location = new System.Drawing.Point(130, 336);
             this.CarbonText.Name = "CarbonText";
             this.CarbonText.Size = new System.Drawing.Size(100, 31);
@@ -130,6 +139,7 @@ namespace CaloriesCalculator
             // 
             // FatsText
             // 
+            this.FatsText.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.FatsText.Location = new System.Drawing.Point(130, 304);
             this.FatsText.Name = "FatsText";
             this.FatsText.Size = new System.Drawing.Size(56, 23);
@@ -138,6 +148,7 @@ namespace CaloriesCalculator
             // 
             // ProteinText
             // 
+            this.ProteinText.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.ProteinText.Location = new System.Drawing.Point(130, 275);
             this.ProteinText.Name = "ProteinText";
             this.ProteinText.Size = new System.Drawing.Size(100, 23);
@@ -146,6 +157,7 @@ namespace CaloriesCalculator
             // 
             // label14
             // 
+            this.label14.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label14.Location = new System.Drawing.Point(550, 84);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(120, 53);
@@ -155,6 +167,7 @@ namespace CaloriesCalculator
             // 
             // label9
             // 
+            this.label9.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.label9.Location = new System.Drawing.Point(401, 84);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(120, 53);
@@ -164,6 +177,7 @@ namespace CaloriesCalculator
             // 
             // WeightDecreaseText
             // 
+            this.WeightDecreaseText.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.WeightDecreaseText.Location = new System.Drawing.Point(280, 84);
             this.WeightDecreaseText.Name = "WeightDecreaseText";
             this.WeightDecreaseText.Size = new System.Drawing.Size(86, 53);
@@ -173,6 +187,7 @@ namespace CaloriesCalculator
             // 
             // WithoutWeightChangeText
             // 
+            this.WithoutWeightChangeText.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.WithoutWeightChangeText.Location = new System.Drawing.Point(148, 84);
             this.WithoutWeightChangeText.Name = "WithoutWeightChangeText";
             this.WithoutWeightChangeText.Size = new System.Drawing.Size(100, 53);
@@ -199,7 +214,7 @@ namespace CaloriesCalculator
             this.Controls.Add(this.WeightDecreaseText);
             this.Controls.Add(this.WithoutWeightChangeText);
             this.Name = "ResultsForm";
-            this.Text = "ResultsForm";
+            this.Text = "Результаты";
             this.IndicatorValues.ResumeLayout(false);
             this.ResumeLayout(false);
         }

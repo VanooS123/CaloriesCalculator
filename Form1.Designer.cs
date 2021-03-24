@@ -30,9 +30,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.CaloriesNormalControl = new System.Windows.Forms.TabPage();
+            this.WeightIndex = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.IdealHeight = new System.Windows.Forms.TextBox();
+            this.IdealWeightDisplay = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.CountIdealWeight = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.IdealWeight = new System.Windows.Forms.TextBox();
             this.CountCaloriesAccordingParameters = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.PhysicalActivity = new System.Windows.Forms.ComboBox();
@@ -50,17 +58,8 @@
             this.Female = new System.Windows.Forms.RadioButton();
             this.Growth = new System.Windows.Forms.TextBox();
             this.Weight = new System.Windows.Forms.TextBox();
-            this.IdealWeightControl = new System.Windows.Forms.TabPage();
-            this.WeightIndex = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.IdealHeight = new System.Windows.Forms.TextBox();
-            this.IdealWeightDisplay = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.CountIdealWeight = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.IdealWeight = new System.Windows.Forms.TextBox();
             this.DishesControl = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
             this.блюдаDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -94,19 +93,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dishBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.IngridientsПродуктовDataSet = new CaloriesCalculator.КалорийностьПродуктовDataSet();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.ингридиентыBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.IngridientsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.IngridientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.IngridientsTableAdapter = new CaloriesCalculator.КалорийностьПродуктовDataSetTableAdapters.ИнгридиентыTableAdapter();
             this.tableAdapterManager = new CaloriesCalculator.КалорийностьПродуктовDataSetTableAdapters.TableAdapterManager();
@@ -115,11 +101,11 @@
             this.tableAdapterManager1 = new CaloriesCalculator.КалорийностьПродуктовDataSet1TableAdapters.TableAdapterManager();
             this.блюдаTableAdapter = new CaloriesCalculator.КалорийностьПродуктовDataSet2TableAdapters.БлюдаTableAdapter();
             this.tableAdapterManager2 = new CaloriesCalculator.КалорийностьПродуктовDataSet2TableAdapters.TableAdapterManager();
+            this.label14 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.CaloriesNormalControl.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.IdealWeightControl.SuspendLayout();
             this.DishesControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.блюдаDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.блюдаBindingSource)).BeginInit();
@@ -132,8 +118,6 @@
             ((System.ComponentModel.ISupportInitialize) (this.NewDishesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.dishBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.IngridientsПродуктовDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.IngridientsBindingNavigator)).BeginInit();
-            this.IngridientsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.IngridientsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,7 +125,6 @@
             // 
             this.tabControl1.Alignment = System.Windows.Forms.TabAlignment.Bottom;
             this.tabControl1.Controls.Add(this.CaloriesNormalControl);
-            this.tabControl1.Controls.Add(this.IdealWeightControl);
             this.tabControl1.Controls.Add(this.DishesControl);
             this.tabControl1.Controls.Add(this.IngridientsControl);
             this.tabControl1.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
@@ -154,6 +137,15 @@
             // 
             // CaloriesNormalControl
             // 
+            this.CaloriesNormalControl.Controls.Add(this.WeightIndex);
+            this.CaloriesNormalControl.Controls.Add(this.label13);
+            this.CaloriesNormalControl.Controls.Add(this.IdealHeight);
+            this.CaloriesNormalControl.Controls.Add(this.IdealWeightDisplay);
+            this.CaloriesNormalControl.Controls.Add(this.label12);
+            this.CaloriesNormalControl.Controls.Add(this.CountIdealWeight);
+            this.CaloriesNormalControl.Controls.Add(this.label10);
+            this.CaloriesNormalControl.Controls.Add(this.label11);
+            this.CaloriesNormalControl.Controls.Add(this.IdealWeight);
             this.CaloriesNormalControl.Controls.Add(this.CountCaloriesAccordingParameters);
             this.CaloriesNormalControl.Controls.Add(this.label6);
             this.CaloriesNormalControl.Controls.Add(this.PhysicalActivity);
@@ -175,10 +167,80 @@
             this.CaloriesNormalControl.Text = "Норма калорий";
             this.CaloriesNormalControl.UseVisualStyleBackColor = true;
             // 
+            // WeightIndex
+            // 
+            this.WeightIndex.Location = new System.Drawing.Point(758, 297);
+            this.WeightIndex.Name = "WeightIndex";
+            this.WeightIndex.Size = new System.Drawing.Size(96, 23);
+            this.WeightIndex.TabIndex = 91;
+            // 
+            // label13
+            // 
+            this.label13.Location = new System.Drawing.Point(571, 297);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(181, 23);
+            this.label13.TabIndex = 90;
+            this.label13.Text = "Индекс массы тела";
+            // 
+            // IdealHeight
+            // 
+            this.IdealHeight.Location = new System.Drawing.Point(687, 88);
+            this.IdealHeight.Name = "IdealHeight";
+            this.IdealHeight.Size = new System.Drawing.Size(100, 28);
+            this.IdealHeight.TabIndex = 89;
+            // 
+            // IdealWeightDisplay
+            // 
+            this.IdealWeightDisplay.Location = new System.Drawing.Point(758, 245);
+            this.IdealWeightDisplay.Name = "IdealWeightDisplay";
+            this.IdealWeightDisplay.Size = new System.Drawing.Size(96, 23);
+            this.IdealWeightDisplay.TabIndex = 88;
+            // 
+            // label12
+            // 
+            this.label12.Location = new System.Drawing.Point(571, 245);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(181, 23);
+            this.label12.TabIndex = 87;
+            this.label12.Text = "Ваш идеальный вес";
+            // 
+            // CountIdealWeight
+            // 
+            this.CountIdealWeight.Location = new System.Drawing.Point(636, 167);
+            this.CountIdealWeight.Name = "CountIdealWeight";
+            this.CountIdealWeight.Size = new System.Drawing.Size(129, 32);
+            this.CountIdealWeight.TabIndex = 86;
+            this.CountIdealWeight.Text = "Расчитать";
+            this.CountIdealWeight.UseVisualStyleBackColor = true;
+            this.CountIdealWeight.Click += new System.EventHandler(this.CountIdealWeight_Click);
+            // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(571, 91);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(100, 23);
+            this.label10.TabIndex = 85;
+            this.label10.Text = "Рост";
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(571, 38);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(100, 23);
+            this.label11.TabIndex = 84;
+            this.label11.Text = "Вес";
+            // 
+            // IdealWeight
+            // 
+            this.IdealWeight.Location = new System.Drawing.Point(687, 38);
+            this.IdealWeight.Name = "IdealWeight";
+            this.IdealWeight.Size = new System.Drawing.Size(100, 28);
+            this.IdealWeight.TabIndex = 83;
+            // 
             // CountCaloriesAccordingParameters
             // 
             this.CountCaloriesAccordingParameters.BackColor = System.Drawing.Color.Transparent;
-            this.CountCaloriesAccordingParameters.Location = new System.Drawing.Point(513, 384);
+            this.CountCaloriesAccordingParameters.Location = new System.Drawing.Point(179, 401);
             this.CountCaloriesAccordingParameters.Name = "CountCaloriesAccordingParameters";
             this.CountCaloriesAccordingParameters.Size = new System.Drawing.Size(126, 55);
             this.CountCaloriesAccordingParameters.TabIndex = 82;
@@ -188,7 +250,7 @@
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(57, 410);
+            this.label6.Location = new System.Drawing.Point(73, 339);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(100, 48);
             this.label6.TabIndex = 19;
@@ -201,14 +263,14 @@
             this.PhysicalActivity.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.PhysicalActivity.FormattingEnabled = true;
             this.PhysicalActivity.Items.AddRange(new object[] {"Малоподвижный", "Легкая активность", "Средняя активность", "Высокая активность", "Экстремальная активность"});
-            this.PhysicalActivity.Location = new System.Drawing.Point(205, 410);
+            this.PhysicalActivity.Location = new System.Drawing.Point(205, 350);
             this.PhysicalActivity.Name = "PhysicalActivity";
             this.PhysicalActivity.Size = new System.Drawing.Size(238, 29);
             this.PhysicalActivity.TabIndex = 18;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(73, 298);
+            this.label5.Location = new System.Drawing.Point(73, 247);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 13;
@@ -223,7 +285,7 @@
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(73, 205);
+            this.label4.Location = new System.Drawing.Point(73, 167);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(100, 23);
             this.label4.TabIndex = 11;
@@ -239,7 +301,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(73, 135);
+            this.label2.Location = new System.Drawing.Point(73, 97);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 23);
             this.label2.TabIndex = 9;
@@ -247,7 +309,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(73, 82);
+            this.label1.Location = new System.Drawing.Point(73, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 23);
             this.label1.TabIndex = 8;
@@ -257,7 +319,7 @@
             // 
             this.groupBox2.Controls.Add(this.MifflinFormula);
             this.groupBox2.Controls.Add(this.HarrisFormula);
-            this.groupBox2.Location = new System.Drawing.Point(205, 281);
+            this.groupBox2.Location = new System.Drawing.Point(205, 230);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(238, 100);
             this.groupBox2.TabIndex = 7;
@@ -287,7 +349,7 @@
             // 
             this.groupBox1.Controls.Add(this.Male);
             this.groupBox1.Controls.Add(this.Female);
-            this.groupBox1.Location = new System.Drawing.Point(205, 178);
+            this.groupBox1.Location = new System.Drawing.Point(205, 140);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(163, 84);
             this.groupBox1.TabIndex = 6;
@@ -295,7 +357,7 @@
             // 
             // Male
             // 
-            this.Male.Location = new System.Drawing.Point(6, 27);
+            this.Male.Location = new System.Drawing.Point(6, 25);
             this.Male.Name = "Male";
             this.Male.Size = new System.Drawing.Size(135, 24);
             this.Male.TabIndex = 2;
@@ -315,110 +377,22 @@
             // 
             // Growth
             // 
-            this.Growth.Location = new System.Drawing.Point(205, 135);
+            this.Growth.Location = new System.Drawing.Point(205, 97);
             this.Growth.Name = "Growth";
             this.Growth.Size = new System.Drawing.Size(100, 28);
             this.Growth.TabIndex = 1;
             // 
             // Weight
             // 
-            this.Weight.Location = new System.Drawing.Point(205, 82);
+            this.Weight.Location = new System.Drawing.Point(205, 63);
             this.Weight.Name = "Weight";
             this.Weight.Size = new System.Drawing.Size(100, 28);
             this.Weight.TabIndex = 0;
             // 
-            // IdealWeightControl
-            // 
-            this.IdealWeightControl.Controls.Add(this.WeightIndex);
-            this.IdealWeightControl.Controls.Add(this.label13);
-            this.IdealWeightControl.Controls.Add(this.IdealHeight);
-            this.IdealWeightControl.Controls.Add(this.IdealWeightDisplay);
-            this.IdealWeightControl.Controls.Add(this.label12);
-            this.IdealWeightControl.Controls.Add(this.CountIdealWeight);
-            this.IdealWeightControl.Controls.Add(this.label10);
-            this.IdealWeightControl.Controls.Add(this.label11);
-            this.IdealWeightControl.Controls.Add(this.IdealWeight);
-            this.IdealWeightControl.Location = new System.Drawing.Point(4, 4);
-            this.IdealWeightControl.Name = "IdealWeightControl";
-            this.IdealWeightControl.Padding = new System.Windows.Forms.Padding(3);
-            this.IdealWeightControl.Size = new System.Drawing.Size(1169, 462);
-            this.IdealWeightControl.TabIndex = 1;
-            this.IdealWeightControl.Text = "Идеальный вес";
-            this.IdealWeightControl.UseVisualStyleBackColor = true;
-            // 
-            // WeightIndex
-            // 
-            this.WeightIndex.Location = new System.Drawing.Point(224, 300);
-            this.WeightIndex.Name = "WeightIndex";
-            this.WeightIndex.Size = new System.Drawing.Size(96, 23);
-            this.WeightIndex.TabIndex = 19;
-            // 
-            // label13
-            // 
-            this.label13.Location = new System.Drawing.Point(37, 300);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(181, 23);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "Индекс массы тела";
-            // 
-            // IdealHeight
-            // 
-            this.IdealHeight.Location = new System.Drawing.Point(153, 91);
-            this.IdealHeight.Name = "IdealHeight";
-            this.IdealHeight.Size = new System.Drawing.Size(100, 28);
-            this.IdealHeight.TabIndex = 17;
-            // 
-            // IdealWeightDisplay
-            // 
-            this.IdealWeightDisplay.Location = new System.Drawing.Point(224, 248);
-            this.IdealWeightDisplay.Name = "IdealWeightDisplay";
-            this.IdealWeightDisplay.Size = new System.Drawing.Size(96, 23);
-            this.IdealWeightDisplay.TabIndex = 16;
-            // 
-            // label12
-            // 
-            this.label12.Location = new System.Drawing.Point(37, 248);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(181, 23);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Ваш идеальный вес";
-            // 
-            // CountIdealWeight
-            // 
-            this.CountIdealWeight.Location = new System.Drawing.Point(102, 170);
-            this.CountIdealWeight.Name = "CountIdealWeight";
-            this.CountIdealWeight.Size = new System.Drawing.Size(129, 32);
-            this.CountIdealWeight.TabIndex = 14;
-            this.CountIdealWeight.Text = "Расчитать";
-            this.CountIdealWeight.UseVisualStyleBackColor = true;
-            this.CountIdealWeight.Click += new System.EventHandler(this.CountIdealWeight_Click);
-            // 
-            // label10
-            // 
-            this.label10.Location = new System.Drawing.Point(37, 94);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(100, 23);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "Рост";
-            // 
-            // label11
-            // 
-            this.label11.Location = new System.Drawing.Point(37, 41);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(100, 23);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Вес";
-            // 
-            // IdealWeight
-            // 
-            this.IdealWeight.Location = new System.Drawing.Point(153, 41);
-            this.IdealWeight.Name = "IdealWeight";
-            this.IdealWeight.Size = new System.Drawing.Size(100, 28);
-            this.IdealWeight.TabIndex = 10;
-            // 
             // DishesControl
             // 
             this.DishesControl.AutoScroll = true;
+            this.DishesControl.Controls.Add(this.label9);
             this.DishesControl.Controls.Add(this.блюдаDataGridView);
             this.DishesControl.Controls.Add(this.DishesTable);
             this.DishesControl.Location = new System.Drawing.Point(4, 4);
@@ -428,6 +402,14 @@
             this.DishesControl.Text = "Список блюд";
             this.DishesControl.UseVisualStyleBackColor = true;
             this.DishesControl.Enter += new System.EventHandler(this.DishesControl_Enter);
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(594, 179);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 23);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "label9";
             // 
             // блюдаDataGridView
             // 
@@ -439,6 +421,7 @@
             this.блюдаDataGridView.Name = "блюдаDataGridView";
             this.блюдаDataGridView.Size = new System.Drawing.Size(564, 68);
             this.блюдаDataGridView.TabIndex = 12;
+            this.блюдаDataGridView.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.блюдаDataGridView_RowHeaderMouseDoubleClick);
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -512,6 +495,7 @@
             // 
             // IngridientsControl
             // 
+            this.IngridientsControl.Controls.Add(this.label14);
             this.IngridientsControl.Controls.Add(this.label8);
             this.IngridientsControl.Controls.Add(this.NewDishName);
             this.IngridientsControl.Controls.Add(this.IngridientsDataGridView);
@@ -526,8 +510,6 @@
             this.IngridientsControl.TabIndex = 3;
             this.IngridientsControl.Text = "Ингридиенты";
             this.IngridientsControl.UseVisualStyleBackColor = true;
-            this.IngridientsControl.Enter += new System.EventHandler(this.IngridientsControl_Enter);
-            this.IngridientsControl.Leave += new System.EventHandler(this.IngridientsControl_Leave);
             // 
             // label8
             // 
@@ -672,118 +654,6 @@
             this.IngridientsПродуктовDataSet.Namespace = "http://tempuri.org/КалорийностьПродуктовDataSet.xsd";
             this.IngridientsПродуктовDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Переместить в начало";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Переместить назад";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Положение";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Текущее положение";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(43, 22);
-            this.bindingNavigatorCountItem.Text = "для {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Переместить вперед";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Переместить в конец";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Добавить";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Удалить";
-            // 
-            // ингридиентыBindingNavigatorSaveItem
-            // 
-            this.ингридиентыBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ингридиентыBindingNavigatorSaveItem.Image = ((System.Drawing.Image) (resources.GetObject("ингридиентыBindingNavigatorSaveItem.Image")));
-            this.ингридиентыBindingNavigatorSaveItem.Name = "ингридиентыBindingNavigatorSaveItem";
-            this.ингридиентыBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.ингридиентыBindingNavigatorSaveItem.Text = "Сохранить данные";
-            this.ингридиентыBindingNavigatorSaveItem.Click += new System.EventHandler(this.ингридиентыBindingNavigatorSaveItem_Click);
-            // 
-            // IngridientsBindingNavigator
-            // 
-            this.IngridientsBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.IngridientsBindingNavigator.BindingSource = this.IngridientsBindingSource;
-            this.IngridientsBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.IngridientsBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.IngridientsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.bindingNavigatorMoveFirstItem, this.bindingNavigatorMovePreviousItem, this.bindingNavigatorSeparator, this.bindingNavigatorPositionItem, this.bindingNavigatorCountItem, this.bindingNavigatorSeparator1, this.bindingNavigatorMoveNextItem, this.bindingNavigatorMoveLastItem, this.bindingNavigatorSeparator2, this.bindingNavigatorAddNewItem, this.bindingNavigatorDeleteItem, this.ингридиентыBindingNavigatorSaveItem});
-            this.IngridientsBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.IngridientsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.IngridientsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.IngridientsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.IngridientsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.IngridientsBindingNavigator.Name = "IngridientsBindingNavigator";
-            this.IngridientsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.IngridientsBindingNavigator.Size = new System.Drawing.Size(1177, 25);
-            this.IngridientsBindingNavigator.TabIndex = 1;
-            this.IngridientsBindingNavigator.Text = "bindingNavigator1";
-            // 
             // IngridientsBindingSource
             // 
             this.IngridientsBindingSource.DataMember = "Ингридиенты";
@@ -824,16 +694,25 @@
             this.tableAdapterManager2.UpdateOrder = CaloriesCalculator.КалорийностьПродуктовDataSet2TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager2.БлюдаTableAdapter = this.блюдаTableAdapter;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(8, 38);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(130, 21);
+            this.label14.TabIndex = 11;
+            this.label14.Text = "Все ингридиенты";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1177, 497);
-            this.Controls.Add(this.IngridientsBindingNavigator);
             this.Controls.Add(this.tabControl1);
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "Form1";
+            this.Text = "Помощник хозяйки";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
@@ -841,8 +720,6 @@
             this.CaloriesNormalControl.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.IdealWeightControl.ResumeLayout(false);
-            this.IdealWeightControl.PerformLayout();
             this.DishesControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.блюдаDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.блюдаBindingSource)).EndInit();
@@ -856,13 +733,23 @@
             ((System.ComponentModel.ISupportInitialize) (this.NewDishesGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.dishBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.IngridientsПродуктовDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.IngridientsBindingNavigator)).EndInit();
-            this.IngridientsBindingNavigator.ResumeLayout(false);
-            this.IngridientsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize) (this.IngridientsBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label label14;
+
+        private System.Windows.Forms.Label label9;
+
+        private System.Windows.Forms.Button CountIdealWeight;
+        public System.Windows.Forms.TextBox IdealHeight;
+        public System.Windows.Forms.TextBox IdealWeight;
+        private System.Windows.Forms.Label IdealWeightDisplay;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label WeightIndex;
 
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -894,21 +781,6 @@
         private System.Windows.Forms.TabPage DishesControl;
         private System.Windows.Forms.TabPage IngridientsControl;
 
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label WeightIndex;
-
-        public System.Windows.Forms.TextBox IdealHeight;
-
-        private System.Windows.Forms.Label IdealWeightDisplay;
-
-        private System.Windows.Forms.Label label12;
-
-        private System.Windows.Forms.Button CountIdealWeight;
-
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        public System.Windows.Forms.TextBox IdealWeight;
-
         private System.Windows.Forms.Label label6;
 
         public System.Windows.Forms.ComboBox PhysicalActivity;
@@ -935,7 +807,6 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage CaloriesNormalControl;
-        private System.Windows.Forms.TabPage IdealWeightControl;
 
         #endregion
 
@@ -944,19 +815,6 @@
         private КалорийностьПродуктовDataSetTableAdapters.ИнгридиентыTableAdapter IngridientsTableAdapter;
         private КалорийностьПродуктовDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton ингридиентыBindingNavigatorSaveItem;
-        private System.Windows.Forms.BindingNavigator IngridientsBindingNavigator;
         private System.Windows.Forms.BindingSource dishBindingSource;
         private КалорийностьПродуктовDataSetTableAdapters.БлюдаTableAdapter dishTableAdapter;
         private System.Windows.Forms.DataGridView NewDishesGrid;
